@@ -2,31 +2,141 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="shortcut icon" href="DALL·E 2025-02-06 20.25.23 - A modern and sleek logo featuring the letter 'R'. The design should be minimalistic, with bold, futuristic typography. Incorporate a subtle tech or cy.webp" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
-    <title>Muhammad Rayyan Yuwono</title>
+    <link rel="shortcut icon" href="DALL·E 2025-02-06 20.25.23 - A modern and sleek logo featuring the letter 'R'. The design should be minimalistic, with bold, futuristic typography. Incorporate a subtle tech or cy.webp" type="image/webp">
+    <title>Muhammad Rayyan Yuwono - Portfolio</title>
     <style>
-        /* CSS tambahan untuk dropdown menu */
-        .dropdown {
-            display: none; /* Sembunyikan secara default */
+
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-color: black;
+            overflow-x: hidden;
+            touch-action: manipulation;
+        }
+
+        /* Navigation Styles */
+        nav {
+            width: 100%;
+            height: 10vh;
+            min-height: 60px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: black;
+        }
+
+        .nav-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: clamp(1.2rem, 2.5vw, 2rem);
+            font-weight: bold;
+        }
+
+        .logo-text span {
+            color: blue;
+            text-shadow: 0 0 10px blue;
+        }
+
+        .nav-container .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-container .links a {
+            position: relative;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            color: white;
+            text-decoration: none;
+            font-weight: 550;
+            transition: 0.3s linear;
+            padding: 5px 10px;
+        }
+
+        .nav-container .links a::before {
             position: absolute;
-            top: 60px; /* Sesuaikan dengan tinggi nav Anda */
+            content: "";
+            bottom: -3px;
+            left: 50%;
+            width: 0%;
+            height: 3px;
+            background-color: blue;
+            transition: 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-container .links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-container .links a:hover {
+            color: gray;
+        }
+
+        .hamburg, .cancel {
+            cursor: pointer;
+            color: white;
+            font-size: 1.5rem;
+            display: none;
+            z-index: 1001;
+        }
+
+        /* CSS untuk dropdown menu */
+        .dropdown {
+            display: none;
+            position: fixed;
+            top: 0;
             left: 0;
             width: 100%;
-            background-color: #333; /* Contoh warna latar belakang */
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.1000);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: none;
             z-index: 1000;
             flex-direction: column;
             align-items: center;
-            padding: 10px 0;
+            justify-content: center;
+            padding: 0;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
         }
 
         .dropdown.show {
-            display: flex; /* Tampilkan ketika kelas 'show' ditambahkan */
+            display: flex;
+            transform: translateY(0);
         }
 
         .dropdown .links {
@@ -34,93 +144,1187 @@
             flex-direction: column;
             width: 100%;
             text-align: center;
+            gap: 25px;
         }
 
         .dropdown .links a {
-            padding: 10px 0;
+            padding: 15px 0;
             color: white;
             text-decoration: none;
             width: 100%;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .dropdown .links a:hover {
-            background-color: #575757;
+            background-color: rgba(0, 0, 255, 0.2);
+            transform: scale(1.05);
         }
 
         .dropdown .cancel {
-            margin-top: 10px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
             color: white;
             cursor: pointer;
-            font-size: 1.5em;
+            font-size: 2rem;
+            z-index: 1001;
         }
 
-        /* Sembunyikan link di nav biasa saat di tampilan mobile dan dropdown terlihat */
-        @media (max-width: 768px) { /* Sesuaikan breakpoint jika perlu */
-            .links {
-                display: none; /* Sembunyikan link di nav default */
+        /* Main Section */
+        section {
+            width: 100%;
+            min-height: 90vh;
+            padding: 20px;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 80vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            padding: 40px 20px;
+        }
+
+        .main-container .image {
+            flex: 1;
+            max-width: 400px;
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 0, 255, 0.5);
+            margin: 0 auto;
+        }
+
+        .main-container .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: animate 1.5s ease-in-out infinite;
+        }
+
+        @keyframes animate {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .main-container .content {
+            flex: 1;
+            color: white;
+            max-width: 600px;
+        }
+
+        .content h1 {
+            font-size: clamp(1.8rem, 7vw, 3rem);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .content h1 span {
+            color: blue;
+            text-shadow: 0 0 10px blue;
+        }
+
+        .content .typewriter {
+            font-size: clamp(1.2rem, 5vw, 2rem);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .content .typewriter-text {
+            color: blue;
+            text-shadow: 0 0 10px blue;
+        }
+
+        .content p {
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            line-height: 1.6;
+            margin: 20px 0;
+            text-align: justify;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-links i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: 2px solid blue;
+            border-radius: 50%;
+            color: blue;
+            font-size: 1.5rem;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-links i:hover {
+            transform: scale(1.2);
+            color: black;
+            background-color: blue;
+            box-shadow: 0 0 20px blue;
+        }
+
+        .btn {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .btn button {
+            padding: 15px 30px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
+        }
+
+        .btn button:hover {
+            transform: translateY(-3px);
+            background-color: transparent;
+            border: 2px solid blue;
+            color: blue;
+            box-shadow: 0 0 30px blue;
+        }
+
+        /* Animated Background */
+        .animated-background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(45deg, #000000, #000033, #000066, #0a0a2e);
+        }
+
+        /* Stars */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite alternate;
+        }
+
+        .star:nth-child(1) { 
+            top: 10%; left: 20%; 
+            animation-delay: 0s; 
+        }
+        .star:nth-child(2) { 
+            top: 20%; left: 80%; 
+            animation-delay: 0.5s; 
+            width: 3px; height: 3px; 
+        }
+        .star:nth-child(3) { 
+            top: 30%; left: 40%; 
+            animation-delay: 1s; 
+        }
+        .star:nth-child(4) { 
+            top: 50%; left: 10%; 
+            animation-delay: 1.5s; 
+            width: 1.5px; height: 1.5px; 
+        }
+        .star:nth-child(5) { 
+            top: 60%; left: 90%; 
+            animation-delay: 2s; 
+            width: 2.5px; height: 2.5px; 
+        }
+        .star:nth-child(6) { 
+            top: 70%; left: 30%; 
+            animation-delay: 0.3s; 
+        }
+        .star:nth-child(7) { 
+            top: 80%; left: 70%; 
+            animation-delay: 0.8s; 
+            width: 1px; height: 1px; 
+        }
+        .star:nth-child(8) { 
+            top: 15%; left: 60%; 
+            animation-delay: 1.2s; 
+            width: 3px; height: 3px; 
+        }
+        .star:nth-child(9) { 
+            top: 45%; left: 5%; 
+            animation-delay: 1.7s; 
+        }
+        .star:nth-child(10) { 
+            top: 85%; left: 95%; 
+            animation-delay: 2.2s; 
+            width: 2px; height: 2px; 
+        }
+
+        /* Shooting stars */
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: linear-gradient(45deg, #ffffff, #87ceeb);
+            border-radius: 50%;
+            animation: shoot 8s linear infinite;
+            opacity: 0;
+        }
+
+        .shooting-star:nth-child(11) {
+            top: 10%;
+            left: -5%;
+            animation-delay: 0s;
+        }
+
+        .shooting-star:nth-child(12) {
+            top: 30%;
+            left: -5%;
+            animation-delay: 3s;
+        }
+
+        .shooting-star:nth-child(13) {
+            top: 60%;
+            left: -5%;
+            animation-delay: 6s;
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(0, 100, 255, 0.8), rgba(0, 150, 255, 0.3));
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .particle:nth-child(14) { 
+            top: 25%; left: 15%; 
+            animation-delay: 0s; 
+        }
+        .particle:nth-child(15) { 
+            top: 55%; left: 85%; 
+            animation-delay: 5s; 
+        }
+        .particle:nth-child(16) { 
+            top: 75%; left: 25%; 
+            animation-delay: 10s; 
+        }
+
+        /* Nebula effect */
+        .nebula {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(75, 0, 130, 0.3), rgba(138, 43, 226, 0.1), transparent);
+            animation: nebula 20s ease-in-out infinite;
+            filter: blur(1px);
+        }
+
+        .nebula:nth-child(17) {
+            top: 20%;
+            left: 70%;
+            animation-delay: 0s;
+        }
+
+        .nebula:nth-child(18) {
+            top: 60%;
+            left: 10%;
+            animation-delay: 10s;
+            width: 150px;
+            height: 150px;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        @keyframes shoot {
+            0% {
+                opacity: 0;
+                transform: translateX(0) translateY(0) rotate(45deg);
             }
-            .hamburg {
-                display: block !important; /* Pastikan hamburger terlihat */
+            5% {
+                opacity: 1;
             }
-            .nav-container {
-                justify-content: space-between;
+            95% {
+                opacity: 1;
+                transform: translateX(300px) translateY(300px) rotate(45deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(300px) translateY(300px) rotate(45deg);
             }
         }
 
-        /* CSS untuk minimap yang selalu terlihat di bagian lokasi */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.5;
+            }
+            25% {
+                transform: translateY(-20px) rotate(90deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-10px) rotate(180deg);
+                opacity: 0.7;
+            }
+            75% {
+                transform: translateY(-30px) rotate(270deg);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes nebula {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.3;
+            }
+            25% {
+                transform: scale(1.1) rotate(90deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(0.9) rotate(180deg);
+                opacity: 0.4;
+            }
+            75% {
+                transform: scale(1.2) rotate(270deg);
+                opacity: 0.6;
+            }
+        }
+
+        /* Section Styles */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: blue;
+            text-shadow: 0 0 10px blue;
+        }
+
+        /* About Section */
+        .about {
+            background-color: black;
+            padding: 80px 0;
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-info {
+            flex-basis: 100%;
+            max-width: 900px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .info-card {
+            background: rgba(0, 0, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 0, 255, 0.2);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+            padding: 15px;
+            background: rgba(0, 0, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .stat i {
+            font-size: 2rem;
+            color: blue;
+            text-shadow: 0 0 10px blue;
+        }
+
+        .about-description {
+            color: white;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+        }
+
+        .about-highlights {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .about-highlights li {
+            margin: 12px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #cccccc;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+        }
+
+        .about-highlights i {
+            color: blue;
+            font-size: 1.2rem;
+            margin-top: 2px;
+        }
+
+        .education-section, .certifications-section {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(0, 0, 255, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 255, 0.2);
+        }
+
+        .education-section h3, .certifications-section h3 {
+            color: white;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+        }
+
+        .education-section i, .certifications-section i {
+            color: blue;
+            font-size: 1.3rem;
+        }
+
+        .certifications-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .certifications-section li {
+            color: #cccccc;
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .certifications-section li::before {
+            content: "•";
+            color: blue;
+            position: absolute;
+            left: 0;
+        }
+
+        .button-3d {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: clamp(1rem, 1.2vw, 1.1rem);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
+        }
+
+        .button-3d:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 0, 255, 0.6);
+            background: rgb(0, 0, 200);
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: black;
+            padding: 80px 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: rgba(0, 0, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 40px rgba(0, 0, 255, 0.4);
+        }
+
+        .skill-card i {
+            font-size: 3.5rem;
+            color: blue;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px blue;
+        }
+
+        .skill-card h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+        }
+
+        .skill-description {
+            color: #cccccc;
+            font-size: clamp(0.85rem, 1vw, 0.95rem);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, blue, #0066ff);
+            box-shadow: 0 0 10px blue;
+            border-radius: 4px;
+            animation: fillProgress 2s ease-out forwards;
+            transform-origin: left;
+        }
+
+        .percentage {
+            color: white;
+            font-size: clamp(1rem, 1.2vw, 1.1rem);
+            font-weight: bold;
+        }
+
+        @keyframes fillProgress {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: black;
+            padding: 80px 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(0, 0, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 40px rgba(0, 0, 255, 0.4);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: rgba(0, 0, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgba(0, 0, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            color: white;
+            font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: clamp(0.9rem, 1vw, 1rem);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(0, 0, 255, 0.2);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 0, 255, 0.4);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            padding: 10px 20px;
+            background: blue;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-link:hover {
+            background: rgb(0, 0, 200);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 255, 0.4);
+        }
+
+        /* Achievements Section - NEW STYLING */
+        .achievements {
+            background-color: black;
+            padding: 80px 0;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .achievement-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            border: 3px solid #87CEEB;
+            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.3);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(135, 206, 235, 0.4);
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #87CEEB, #5FA8D3);
+        }
+
+        .achievement-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: #f0f8ff;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #87CEEB;
+            overflow: hidden;
+        }
+
+        .achievement-icon i {
+            font-size: 3rem;
+            color: #4682B4;
+        }
+
+        .achievement-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 13px;
+        }
+
+        .achievement-title {
+            color: #2C3E50;
+            font-size: clamp(1.3rem, 1.5vw, 1.4rem);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .achievement-description {
+            color: #34495E;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: clamp(0.9rem, 1vw, 1rem);
+        }
+
+        .achievement-date {
+            color: #4682B4;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f0f8ff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: black;
+            padding: 80px 0;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: rgba(0, 0, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 0, 255, 0.4);
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: blue;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px blue;
+        }
+
+        .contact-card h3 {
+            font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+            color: #cccccc;
+        }
+
         .location-minimap-always-visible {
-            width: 150px; /* Ukuran minimap persegi (sesuaikan) */
-            height: 150px; /* Ukuran minimap persegi (sesuaikan) */
-            margin-top: 10px; /* Jarak dari teks lokasi di atasnya */
-            border: 2px solid #007bff; /* Border minimap */
-            border-radius: 8px; /* Sudut membulat */
-            overflow: hidden; /* Pastikan konten iframe tidak meluap */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sedikit bayangan */
-            /* Untuk memusatkan minimap jika contact-card lebih lebar */
+            width: 100%;
+            max-width: 250px;
+            height: 180px;
+            margin-top: 20px;
+            border: 2px solid rgba(0, 0, 255, 0.5);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 255, 0.3);
             margin-left: auto;
             margin-right: auto;
-            display: block; /* Agar margin auto berfungsi */
+            display: block;
         }
 
         .location-minimap-always-visible iframe {
             width: 100%;
             height: 100%;
-            border: none; /* Hapus border iframe */
+            border: none;
         }
 
-        /* Responsive layout untuk bagian contact, jika belum ada di style.css Anda */
-        @media (min-width: 769px) {
-            .contact-content {
-                display: flex;
-                flex-wrap: wrap; /* Izinkan wrap pada item */
-                gap: 30px; /* Jarak antar kolom */
+        .contact-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 0, 255, 0.3);
+            border-radius: 8px;
+            color: white;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: blue;
+            box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
+        }
+
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: #888;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .glow-button {
+            padding: 15px 30px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: clamp(1rem, 1.2vw, 1.1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
+        }
+
+        .glow-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 0, 255, 0.6);
+            background: rgb(0, 0, 200);
+        }
+
+        /* Scroll to top button */
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #555;
+            opacity: 1;
+        }
+
+        /* Ensure all text in about section is white */
+        .about-info,
+        .about-info h3,
+        .about-info p,
+        .about-highlights li,
+        .about-highlights li i,
+        .education-section h3,
+        .education-section p,
+        .certifications-section h3,
+        .certifications-section li {
+            color: white !important;
+        }
+
+        .stat i {
+            color: blue !important;
+        }
+
+        .education-text-white,
+        .education-text-white h3,
+        .education-text-white p {
+            color: white !important;
+        }
+
+        .certifications-section li::before {
+            color: blue !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container .links {
+                display: none;
+            }
+            
+            .hamburg {
+                display: block !important;
+            }
+            
+            .nav-container {
+                justify-content: space-between;
+                padding: 0 15px;
+            }
+            
+            .logo-text {
+                font-size: clamp(1.2rem, 4vw, 1.5rem);
+            }
+            
+            .logo-img {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .main-container {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 30px;
+                padding: 20px 15px;
+            }
+            
+            .main-container .image {
+                max-width: 250px;
+            }
+            
+            .main-container .content {
+                max-width: 100%;
+                padding: 0 5px;
+            }
+            
+            .content h1 {
+                font-size: 2.2rem;
+            }
+            .content .typewriter {
+                font-size: 1.5rem;
+            }
+
+            .social-links {
                 justify-content: center;
             }
-
-            .contact-info,
-            .contact-form {
-                flex: 1; /* Biarkan mereka mengambil ruang yang sama */
-                min-width: 300px; /* Lebar minimum sebelum wrap */
+            
+            .about-content {
+                text-align: center;
             }
-            /* Menghapus .map-wrapper jika tidak lagi digunakan secara terpisah */
-            .map-wrapper {
-                display: none; /* Sembunyikan map-wrapper jika tidak ingin peta besar terpisah */
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .achievements-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .section-container {
+                padding: 60px 15px;
+            }
+
+            .about, .skills, .projects, .achievements, .contact {
+                padding-left: 15px;
+                padding-right: 15px;
             }
         }
 
-        /* Added CSS for the about-info to take full width when the image is removed */
-        .about-content {
-            display: flex;
-            justify-content: center; /* Center the content if it's a single column */
-            align-items: center;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 10px;
+            }
+            
+            .logo-text {
+                font-size: 1.1rem;
+            }
+            
+            .main-container .image {
+                max-width: 200px;
+            }
+            
+            .social-links i {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skill-card {
+                padding: 20px;
+            }
+            
+            .project-card {
+                margin: 0 10px;
+            }
+            
+            .achievement-card {
+                padding: 20px;
+            }
+            
+            .contact-card {
+                padding: 20px;
+            }
+            
+            .section-container {
+                padding: 40px 10px;
+            }
+            
+            .about-highlights li {
+                font-size: 0.85rem;
+            }
+            
+            .button-3d {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            .btn button {
+                font-size: 1rem;
+            }
+
+            .content h1 {
+                font-size: 2rem;
+            }
+            .content .typewriter {
+                font-size: 1.3rem;
+            }
+            .content p {
+                font-size: 0.9rem;
+            }
         }
 
-        .about-info {
-            flex-basis: 100%; /* Make about-info take full width */
-            max-width: 800px; /* Optional: set a max-width for better readability */
-            text-align: center; /* Center text within the about-info card */
-            padding: 20px; /* Add some padding */
+        @media (max-width: 360px) {
+            .main-container {
+                padding: 15px 5px;
+            }
+            
+            .main-container .image {
+                max-width: 180px;
+            }
+            
+            .social-links {
+                gap: 8px;
+            }
+            
+            .social-links i {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .skill-card {
+                padding: 15px;
+            }
+            
+            .project-card {
+                margin: 0 5px;
+            }
+            
+            .achievement-card {
+                padding: 15px;
+            }
+            
+            .contact-card {
+                padding: -100px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .content h1 {
+                font-size: 1.8rem;
+            }
+            .content .typewriter {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -135,51 +1339,75 @@
                 <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="#home">Home</a></div>
                 <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="#about">About</a></div>
                 <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="#skills">Skills</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="#contact">Contact</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="#projects">Projects</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="#achievements">Achievements</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600"><a href="#contact">Contact</a></div>
             </div>
             <i class="fa-solid fa-bars hamburg" id="hamburger-icon"></i>
         </div>
         <div class="dropdown" id="dropdown-menu">
+            <i class="fa-solid fa-xmark cancel" id="cancel-icon"></i>
             <div class="links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#achievements">Achievements</a>
                 <a href="#contact">Contact</a>
-                <i class="fa-solid fa-xmark cancel" id="cancel-icon"></i>
             </div>
         </div>
     </nav>
 
-    <section id="home"> <div class="main-container">
+    <section id="home">
+        <div class="main-container">
             <div class="image" data-aos="zoom-out" data-aos-duration="3000">
-                <img src="FOTO.jpg" alt="" id="home-image">
+                <img src="FOTO.jpg" alt="Muhammad Rayyan Yuwono" id="home-image">
             </div>
             <div class="content">
                 <h1 data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Welcome To My Site <span> Muhammad Rayyan</span></h1>
                 <div class="typewriter" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="900">Saya<span class="typewriter-text"></span><label for="">|</label></div>
                 <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">Hallo Teman perkenalkan saya Muhammad Rayyan Yuwono saya adalah seorang front end development,saya mampu untuk mengoperasikan bahasa pemrograman dengan baik dengan menggunakan beberapa teknologi berupa HTML,CSS.DAN JAVA SCRIPT, Salam kenal!!</p>
                 <div class="social-links">
-                    <a target="_blank"href="https://github.com/rayyanzaaaaaaaa" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300"><i class="fa-brands fa-github"></i></a>
-                    <a target="_blank" href="https://open.spotify.com/user/31i3b3b4x2k6s7m4q5d7e8f9?si=a6c9d7e7f8e94a5b" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400"><i class="fa-brands fa-spotify"></i></a>
-                    <a target="_blank" href="https://www.linkedin.com/in/unknown-rayyan-b28118351/" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"><i class="fa-brands fa-linkedin"></i></a>
-                    <a target="_blank" href="https://www.instagram.com/raynncoupgrace.__/" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1600"><i class="fa-brands fa-instagram"></i></a>
+                    <a target="_blank" rel="noopener" title="GitHub Profile" href="https://github.com/rayyanzaaaaaaaa" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300"><i class="fa-brands fa-github"></i></a>
+                    <a target="_blank" rel="noopener" title="Spotify Profile" href="https://open.spotify.com/user/your_spotify_id" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400"><i class="fa-brands fa-spotify"></i><span class="sr-only">Spotify</span></a>
+                    <a target="_blank" rel="noopener" title="LinkedIn Profile" href="https://www.linkedin.com/in/unknown-rayyan-b28118351/" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"><i class="fa-brands fa-linkedin"></i><span class="sr-only">LinkedIn</span></a>
+                    <a target="_blank" rel="noopener noreferrer" title="Instagram Profile" href="https://www.instagram.com/raynncoupgrace.__/" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1600"><i class="fa-brands fa-instagram"></i><span class="sr-only">Instagram</span></a>
                 </div>
                 <div class="btn" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1800">
-                    <div class="btn" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1800">
- <a href="https://wa.me/6285648361572" target="_blank">
-    <button>Ingin Tau Lebih Tentang Saya?</button>
- </a>
-</div>
-
+                    <a href="https://wa.me/6285648361572" target="_blank" rel="noopener">
+                        <button>Ingin Tau Lebih Tentang Saya?</button>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
     <div class="animated-background">
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
+        <!-- Stars -->
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        
+        <!-- Shooting Stars -->
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+        
+        <!-- Floating Particles -->
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        
+        <!-- Nebula Effect -->
+        <div class="nebula"></div>
+        <div class="nebula"></div>
     </div>
     
     <section class="about" id="about">
@@ -241,7 +1469,7 @@
         </div>
     </section>
     
-   <section class="skills" id="skills">
+    <section class="skills" id="skills">
         <div class="section-container">
             <h2 class="section-title" data-aos="fade-down" data-aos-duration="1500">My <span>Skills</span></h2>
             
@@ -391,6 +1619,9 @@
         </div>
     </div>
 </div>
+    </section>
+
+   
     
     <section class="contact" id="contact">
         <div class="section-container">
@@ -415,7 +1646,7 @@
                         <h3>Location</h3>
                         <p>cakung Jakarta Timur, Indonesia</p>
                         <div class="location-minimap-always-visible">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126930.57077977055!2d106.90673395!3d-6.197775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698bb2c2227289%3A0x66c8913c2005a305!2sCakung%2C%20East%20Jakarta%20City%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1719207908353!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15865.73200701041!2d106.94050215!3d-6.2087636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698cd92b45e073%3A0x6b4a5d8f6f5d5e5e!2sCakung%2C%20East%20Jakarta%20City%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
@@ -432,8 +1663,6 @@
                     </div>
                     <button type="submit" class="glow-button">Send Message</button>
                 </form>
-
-
             </div>
         </div>
     </section>
@@ -444,24 +1673,25 @@
     <script>
         AOS.init({offset:0});
     </script>
-    <script src="script.js"></script>    
+    <script src="script.js"></script>        
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
+
+        
         (function() {
-            emailjs.init("yXwZoYrMc0QtWL-O-"); // Ganti dengan Public Key dari EmailJS
+            emailjs.init("yXwZoYrMc0QtWL-O-"); // Ganti dengan Public Key dari EmailJS Anda
         })();
-    
+
         document.getElementById("contact-form").addEventListener("submit", function(event) {
             event.preventDefault();
-    
+
             let templateParams = {
                 from_name: document.getElementById("name").value,
                 from_email: document.getElementById("email").value,
                 message: document.getElementById("message").value
             };
-    
+
             emailjs.send("service_nvpvito", "template_qqxyjgo", templateParams)
                 .then(function(response) {
                     Swal.fire({
@@ -471,7 +1701,7 @@
                         confirmButtonColor: "#3085d6",
                         confirmButtonText: "OK"
                     });
-    
+
                     // Reset form setelah berhasil
                     document.getElementById("contact-form").reset();
                 }, function(error) {
@@ -495,35 +1725,39 @@
             // Fungsi untuk menampilkan/menyembunyikan dropdown
             function toggleDropdown() {
                 dropdownMenu.classList.toggle('show');
-            }
-
-            // Event listener untuk hamburger icon
-            if (hamburgerIcon) {
-                hamburgerIcon.addEventListener('click', toggleDropdown);
-            }
-
-            // Event listener untuk cancel icon
-            if (cancelIcon) {
-                cancelIcon.addEventListener('click', toggleDropdown);
-            }
-
-            // Tutup dropdown saat salah satu link di dropdown diklik
-            dropdownLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    dropdownMenu.classList.remove('show');
-                });
-            });
-
-            // Disable right-click on the home image
-            const homeImage = document.getElementById('home-image');
-            if (homeImage) {
-                homeImage.addEventListener('contextmenu', function(e) {
-                    e.preventDefault();
-                });
-            }
-        });
-    </script>
-</body>
-</html>
-
-
+                                // Tambahkan atau hapus overflow-hidden pada body untuk mencegah scroll saat dropdown terbuka
+                            }
+                
+                            hamburgerIcon.addEventListener('click', () => {
+                                toggleDropdown();
+                                document.body.style.overflow = dropdownMenu.classList.contains('show') ? 'hidden' : '';
+                            });
+                
+                            cancelIcon.addEventListener('click', () => {
+                                toggleDropdown();
+                                document.body.style.overflow = '';
+                            });
+                
+                            dropdownLinks.forEach(link => {
+                                link.addEventListener('click', () => {
+                                    toggleDropdown();
+                                    document.body.style.overflow = '';
+                                });
+                            });
+                        });
+                
+                        // Scroll to top button
+                        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+                        window.onscroll = function() {
+                            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                                scrollToTopBtn.style.display = "block";
+                            } else {
+                                scrollToTopBtn.style.display = "none";
+                            }
+                        };
+                        scrollToTopBtn.onclick = function() {
+                            window.scrollTo({top: 0, behavior: 'smooth'});
+                        };
+                    </script>
+                </body>
+                </html>
